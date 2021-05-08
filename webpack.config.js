@@ -1,14 +1,14 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
-const isDevelopment = process.env.NODE_ENV !== "production";
+const isDevelopment = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-  mode: isDevelopment ? "development" : "production",
-  entry: path.resolve(__dirname, "src", "index.jsx"),
+  mode: isDevelopment ? 'development' : 'production',
+  entry: path.resolve(__dirname, 'src', 'index.jsx'),
   devServer: {
-    contentBase: path.resolve(__dirname, "dist"),
+    contentBase: path.resolve(__dirname, 'dist'),
     compress: true, // gzip compression
     hot: true,
     port: 9000,
@@ -16,8 +16,8 @@ module.exports = {
     progress: true,
   },
   output: {
-    filename: "[name].[contenthash].js",
-    path: path.resolve(__dirname, "dist"),
+    filename: '[name].[contenthash].js',
+    path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
   module: {
@@ -28,12 +28,12 @@ module.exports = {
         use: [
           // ... other loaders
           {
-            loader: require.resolve("babel-loader"),
+            loader: require.resolve('babel-loader'),
             options: {
               // ... other options
               plugins: [
                 // ... other plugins
-                isDevelopment && require.resolve("react-refresh/babel"),
+                isDevelopment && require.resolve('react-refresh/babel'),
               ].filter(Boolean),
             },
           },
@@ -42,9 +42,9 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          "style-loader",
+          'style-loader',
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               modules: true,
             },
@@ -53,14 +53,14 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: ["file-loader"],
+        use: ['file-loader'],
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "src", "index.html"),
-      filename: "index.html",
+      template: path.resolve(__dirname, 'src', 'index.html'),
+      filename: 'index.html',
     }),
     isDevelopment && new ReactRefreshWebpackPlugin(),
   ].filter(Boolean),

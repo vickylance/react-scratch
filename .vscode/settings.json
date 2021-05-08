@@ -1,5 +1,9 @@
 {
-  "cSpell.words": [
-    "transpiling"
-  ]
+  "cSpell.words": ["transpiling"],
+  "editor.formatOnSave": true,
+  "eslint.options": { "configFile": "./.eslintrc.js" },
+  "eslint.alwaysShowStatus": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  }
 }
