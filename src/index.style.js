@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import media from 'styled-media-query';
 import { lighten } from 'polished';
 
-export const Button = styled.button`
+export const CustomButton = styled.button`
   outline: none;
   background: rosybrown;
   font-size: 20px;
@@ -13,4 +13,4 @@ export const Button = styled.button`
   `}
 `;
 
-export default Button;
+export default CustomButton;

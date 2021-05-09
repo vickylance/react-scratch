@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './vitals';
-import { Button } from './index.style';
+import { CustomButton } from './index.style';
 import './index.css';
 
 ReactDOM.render(
   <h1>
-    Hello World <Button>React!</Button>
+    Hello World <CustomButton>React!</CustomButton>
   </h1>,
   document.getElementById('root'),
 );

@@ -8,5 +8,5 @@ module.exports = {
     '<rootDir>/src/**/__tests__/**/*.[jt]s?(x)',
     '<rootDir>/src/**/?(*.)+(spec|test).[tj]s?(x)',
   ],
-  setupFilesAfterEnv: ['<rootDir>/tests/jest.setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/configs/tests/jest.setup.js'],
 };
