@@ -7,12 +7,18 @@
     "build": "cross-env NODE_ENV=production webpack",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
-    "format": "prettier \"**/*.{js,jsx,json,md}\"",
-    "format:fix": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "format": "prettier \"./src/**/*.{js,jsx,json,md}\"",
+    "format:fix": "prettier --write \"./src/**/*.{js,jsx,json,md}\"",
     "test": "cross-env NODE_ENV=test jest --config=./configs/jest.config.js",
     "tdd": "yarn test --watch -u",
+    "test:generate-output": "yarn test --json --outputFile=.jest-test-results.json || true",
     "coverage": "yarn test --coverage",
-    "report": "live-server coverage/lcov-report"
+    "report": "live-server coverage/lcov-report",
+    "storybook": "start-storybook  -c ./configs/storybook -p 6006",
+    "storybook:prebuild": "yarn test:generate-output",
+    "storybook:build": "yarn storybook:prebuild && build-storybook -c ./configs/storybook -o build/",
+    "storybook:predeploy": "npm run build:storybook",
+    "storybook:deploy": "yarn storybook:predeploy && gh-pages -d build/"
   },
   "keywords": [
     "react",
@@ -22,9 +28,16 @@
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.13.16",
+    "@babel/plugin-transform-runtime": "^7.14.2",
     "@babel/preset-env": "^7.14.1",
     "@babel/preset-react": "^7.13.13",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-jest": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/addon-storyshots": "^6.2.9",
+    "@storybook/react": "^6.2.9",
     "@testing-library/dom": "^7.30.4",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
@@ -62,6 +75,7 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "@babel/runtime": "^7.14.0",
     "polished": "^4.1.2",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
@@ -73,11 +87,11 @@
   },
   "lint-staged": {
     "*.{js,jsx}": [
-      "yarn run format:fix",
-      "yarn run lint"
+      "yarn format:fix",
+      "yarn lint"
     ],
     "*.{html,css,less,ejs}": [
-      "yarn run format:fix"
+      "yarn format:fix"
     ]
   },
   "husky": {

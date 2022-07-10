@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders properly 1`] = `
+<div>
+  <form>
+    <div>
+      <label
+        for="username"
+      >
+        Username
+        <input
+          id="username"
+          type="text"
+        />
+      </label>
+    </div>
+    <button
+      type="submit"
+    >
+      Submit
+    </button>
+    <span />
+    <span />
+  </form>
+</div>
+`;

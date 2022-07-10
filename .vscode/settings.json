@@ -1,9 +1,11 @@
 {
-  "cSpell.words": ["transpiling"],
+  "cSpell.words": ["lcov", "prebuild", "predeploy", "transpiling"],
   "editor.formatOnSave": true,
   "eslint.options": { "configFile": "./.eslintrc.js" },
   "eslint.alwaysShowStatus": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": true
-  }
+  },
+  "terminal.integrated.tabs.enabled": true,
+  "terminal.integrated.enableBell": true
 }

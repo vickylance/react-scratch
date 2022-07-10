@@ -134,3 +134,5 @@ temp/
 psd
 thumb
 sketch
+
+.jest-test-results.json
